@@ -338,6 +338,3 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-
-# AppConfig
-Momenty.Web/Momenty.Web/Config/*.config
