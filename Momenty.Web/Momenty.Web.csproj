@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -121,6 +124,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAL\Entities\GenericFund.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -137,6 +141,7 @@
     <Content Include="Static\css\Site.css" />
     <Content Include="Static\js\bootstrap.js" />
     <Content Include="Static\js\bootstrap.min.js" />
+    <Content Include="Config\connectionStrings.config" />
     <None Include="Static\js\jquery-3.4.1.intellisense.js" />
     <Content Include="Static\js\jquery-3.4.1.js" />
     <Content Include="Static\js\jquery-3.4.1.min.js" />
@@ -165,6 +170,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="DAL\Infrastructure\" />
+    <Folder Include="DAL\Migrations\" />
+    <Folder Include="DAL\Repositories\" />
+    <Folder Include="DAL\Services\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
