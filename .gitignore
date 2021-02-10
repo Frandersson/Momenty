@@ -340,4 +340,4 @@ ASALocalRun/
 healthchecksdb
 
 # AppConfig
-Momenty.Web/Momenty.Web/Config/
+Momenty.Web/Momenty.Web/Config/*.config
