@@ -217,6 +217,7 @@
     <Compile Include="DAL\Entities\GenericFund.cs" />
     <Compile Include="DAL\Migrations\202102112113_AddFundTable.cs" />
     <Compile Include="DAL\Migrations\202102112155_AddFundReturnRatesTable.cs" />
+    <Compile Include="DAL\Migrations\MigrationRunner\FluentMigratorRunner.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
