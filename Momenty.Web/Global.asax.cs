@@ -1,4 +1,6 @@
-﻿using Momenty.Web.DAL.Migrations.MigrationRunner;
+﻿using Momenty.Web.DAL.Entities;
+using Momenty.Web.DAL.Migrations.MigrationRunner;
+using Momenty.Web.DAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +22,15 @@ namespace Momenty.Web
 
             // Run database migrations
             FluentMigratorRunner.RunMigrations();
+
+
+            /*
+            // Test case
+            IFundRepository repo = new FundRepository();
+            var newFund = new Fund { Name = "Test Fond 3"};
+
+            repo.Insert(newFund);
+            */
         }
 
     }

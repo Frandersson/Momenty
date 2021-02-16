@@ -6,7 +6,7 @@ namespace Momenty.Web.DAL.Repositories.Generic
     {
         TEntity Get(int Id);
         IEnumerable<TEntity> GetAll();
-        void Add(TEntity entity);
+        void Insert(TEntity entity);
         void Delete(TEntity entity);
     }
 }

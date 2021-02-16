@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,12 @@ namespace Momenty.Web.DAL.Repositories.Generic
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         private readonly string _connectionString = ConfigurationManager.ConnectionStrings["MomentyMain"].ConnectionString;
+        private readonly string _tableName;
+
+        public GenericRepository(string tableName)
+        {
+            _tableName = tableName;
+        }
 
         private IDbConnection CreateConnection()
         {
@@ -28,7 +35,7 @@ namespace Momenty.Web.DAL.Repositories.Generic
             using (var connection = CreateConnection())
             {
                 connection.Open();
-                return connection.QuerySingleOrDefault<TEntity>($"SELECT * FROM {typeof(TEntity).Name}s WHERE Id={Id}");
+                return connection.QuerySingleOrDefault<TEntity>($"SELECT * FROM {_tableName} WHERE Id={Id}");
             }
         }
 
@@ -37,35 +44,23 @@ namespace Momenty.Web.DAL.Repositories.Generic
             using (var connection = CreateConnection())
             {
                 connection.Open();
-                return connection.Query<TEntity>($"SELECT * FROM {typeof(TEntity).Name}s");
+                return connection.Query<TEntity>($"SELECT * FROM {_tableName}");
             }
         }
 
-        public void Add(TEntity entity)
+        public void Insert(TEntity entity)
         {
-            var columns = GetColumns();
-            var stringOfColumns = string.Join(", ", columns);
-            var stringOfParameters = string.Join(", ", columns.Select(e => "@" + e));
-            var query = $"INSERT INTO {typeof(TEntity).Name}s ({stringOfColumns}) VALUES ({stringOfParameters})";
-
             using (var connection = CreateConnection())
             {
                 connection.Open();
-                connection.Execute(query, entity);
+                connection.Insert(entity);
             }
+
         }
 
         public void Delete(TEntity entity)
         {
             throw new NotImplementedException();
-        }
-
-        private IEnumerable<string> GetColumns()
-        {
-            return typeof(TEntity)
-                    .GetProperties()
-                    .Where(e => e.Name != "Id" && !e.PropertyType.GetTypeInfo().IsGenericType)
-                    .Select(e => e.Name);
         }
     }
 }

@@ -5,5 +5,8 @@ namespace Momenty.Web.DAL.Repositories
 {
     public class FundRepository : GenericRepository<Fund>, IFundRepository
     {
+        public FundRepository() : base("Funds")
+        {
+        }
     }
 }
