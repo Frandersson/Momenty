@@ -214,10 +214,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAL\Entities\Fund.cs" />
+    <Compile Include="DAL\Entities\FundReturnRate.cs" />
     <Compile Include="DAL\Entities\GenericFund.cs" />
+    <Compile Include="DAL\Infrastructure\ConnectionFactories\ConnectionFactory.cs" />
+    <Compile Include="DAL\Infrastructure\ConnectionFactories\IConnectionFactory.cs" />
     <Compile Include="DAL\Migrations\202102112113_AddFundTable.cs" />
     <Compile Include="DAL\Migrations\202102112155_AddFundReturnRatesTable.cs" />
     <Compile Include="DAL\Migrations\MigrationRunner\FluentMigratorRunner.cs" />
+    <Compile Include="DAL\Repositories\FundRepository.cs" />
+    <Compile Include="DAL\Repositories\Generic\GenericRepository.cs" />
+    <Compile Include="DAL\Repositories\Generic\IGenericRepository.cs" />
+    <Compile Include="DAL\Repositories\IFundRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -263,8 +271,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DAL\Infrastructure\" />
-    <Folder Include="DAL\Repositories\" />
     <Folder Include="DAL\Services\" />
     <Folder Include="Models\" />
   </ItemGroup>
