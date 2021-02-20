@@ -2,12 +2,9 @@
 using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.Common;
-using System.Linq;
-using System.Reflection;
 
 namespace Momenty.Web.DAL.Repositories.Generic
 {
@@ -21,7 +18,7 @@ namespace Momenty.Web.DAL.Repositories.Generic
             _tableName = tableName;
         }
 
-        private IDbConnection CreateConnection()
+        protected IDbConnection CreateConnection()
         {
             var factory = DbProviderFactories.GetFactory("System.Data.SqlClient");
             var conn = factory.CreateConnection();

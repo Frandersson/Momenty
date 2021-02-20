@@ -7,10 +7,13 @@ namespace Momenty.Web.DAL.Entities
 {
     public class FundReturnRate
     {
-        public int FundId { get; set; }
-        public decimal OneMonthReturn { get; set; }
-        public decimal ThreeMonthReturn { get; set; }
-        public decimal OneYearReturn { get; set; }
+        public int Id { get; set; }
+        public string FundName { get; set; }
+        public double? OneWeekReturn { get; set; }
+        public double? OneMonthReturn { get; set; }
+        public double? ThreeMonthReturn { get; set; }
+        public double? OneYearReturn { get; set; }
+        public string SortedOn { get; set; }
         public DateTime DateOfScrape { get; set; }
     }
 }
